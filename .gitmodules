@@ -28,3 +28,6 @@
 [submodule "bundle/minibufexplorer"]
 	path = bundle/minibufexplorer
 	url = git://github.com/fholgado/minibufexpl.vim.git
+[submodule "bundle/jshint"]
+	path = bundle/jshint
+	url = git://github.com/manalang/jshint.vim.git
