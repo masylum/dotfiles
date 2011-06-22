@@ -1,3 +1,8 @@
-# Vim files
+# Install
 
-Because sometimes your machine gets fucked up
+``` bash
+cd
+git clone https://github.com/masylum/dotfiles
+cd dotfiles
+make
+```

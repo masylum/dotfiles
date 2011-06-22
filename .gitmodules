@@ -1,33 +1,33 @@
-[submodule "bundle/fugitive"]
-	path = bundle/fugitive
+[submodule "vim/bundle/fugitive"]
+	path = vim/bundle/fugitive
 	url = http://github.com/tpope/vim-fugitive.git
-[submodule "bundle/tabular"]
-	path = bundle/tabular
+[submodule "vim/bundle/tabular"]
+	path = vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
-[submodule "bundle/vim-javascript"]
-	path = bundle/vim-javascript
+[submodule "vim/bundle/vim-javascript"]
+	path = vim/bundle/vim-javascript
 	url = git://github.com/pangloss/vim-javascript.git
-[submodule "bundle/vim-jade"]
-	path = bundle/vim-jade
+[submodule "vim/bundle/vim-jade"]
+	path = vim/bundle/vim-jade
 	url = git://github.com/digitaltoad/vim-jade.git
-[submodule "bundle/vim-stylus"]
-	path = bundle/vim-stylus
+[submodule "vim/bundle/vim-stylus"]
+	path = vim/bundle/vim-stylus
 	url = git://github.com/wavded/vim-stylus.git
-[submodule "bundle/vim-surround"]
-	path = bundle/vim-surround
+[submodule "vim/bundle/vim-surround"]
+	path = vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
+[submodule "vim/bundle/snipmate"]
+	path = vim/bundle/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
-[submodule "bundle/snipmate-nodejs"]
-	path = bundle/snipmate-nodejs
+[submodule "vim/bundle/snipmate-nodejs"]
+	path = vim/bundle/snipmate-nodejs
 	url = git://github.com/jamescarr/snipmate-nodejs.git
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "bundle/minibufexplorer"]
-	path = bundle/minibufexplorer
+[submodule "vim/bundle/minibufexplorer"]
+	path = vim/bundle/minibufexplorer
 	url = git://github.com/fholgado/minibufexpl.vim.git
-[submodule "bundle/jshint"]
-	path = bundle/jshint
+[submodule "vim/bundle/jshint"]
+	path = vim/bundle/jshint
 	url = git://github.com/manalang/jshint.vim.git

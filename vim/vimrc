@@ -32,9 +32,9 @@ syntax enable
 colorscheme solarized
 
 if has("gui_running")
-    set background=light
-else
     set background=dark
+else
+    set background=light
 endif
 
 set statusline=%F%m%r%h%w[%L]%y[%p%%][%04v]
