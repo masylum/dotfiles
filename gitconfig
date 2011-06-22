@@ -1,0 +1,17 @@
+[user]
+	name = Pau
+	email = masylum@gmail.com
+
+[branch "master"]
+  remote = origin
+  merge = refs/heads/master
+
+[color]
+  pager = true
+  ui = true
+  status = auto
+  branch = auto
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
