@@ -116,6 +116,12 @@ map <right> <nop>
 " }
 
 
+" Backups {
+set nobackup      " Real man don't use backups
+set nowritebackup
+set noswapfile
+" }
+
 " GUI STUFF
 if has("gui_running")
     set guioptions-=T " no toolbar set guioptions-=m " no menus
