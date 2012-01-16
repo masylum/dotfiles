@@ -8,7 +8,7 @@ let mapleader = ","
 set nocompatible " We don't want vi compatibility.
 
 " Ignore extension files
-set wildignore=*.dll,*.o,*.obj,*.bak,*.pyc,*.swp " ignore these"
+set wildignore=*.dll,*.o,*.obj,*.bak,*.pyc,*.swp,*/.git/*,*/.svn/* " ignore these"
 set term=ansi
 set termencoding=utf-8
 set encoding=utf-8
@@ -29,13 +29,8 @@ set listchars=tab:->,trail:_
 set wildmenu
 
 syntax enable
-colorscheme solarized
-
-if has("gui_running")
-    set background=dark
-else
-    set background=light
-endif
+colorscheme molokai
+set background=dark
 
 set statusline=%F%m%r%h%w[%L]%y[%p%%][%04v]
 "              | | | | |  |   |      |  |     |    |

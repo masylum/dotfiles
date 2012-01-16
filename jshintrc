@@ -1,4 +1,4 @@
 /*jshint browser: true, devel: true, node: true, jquery: true, debug: true,
 forin: true, undef: true, eqeqeq: true, bitwise: true, immed: true, laxbreak: true, noarg: true,
 noempty: true, nonew: true, indent: 2, maxlen: 120, onevar: true */
-/*global APP, _, Teambox, Templates, $$, Element, Sortable, Backbone, emit */
+/*global APP, _, Teambox, Templates, $$, Element, Sortable, Backbone, emit, I18n */
