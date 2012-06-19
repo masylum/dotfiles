@@ -10,8 +10,6 @@ alias k='clear'
 alias edit="$EDITOR"
 alias pager="$PAGER"
 
-alias q="exit"
-
 alias irc="$IRC_CLIENT"
 
 alias ..='cd ..'         # Go up one directory
@@ -29,8 +27,8 @@ then
 fi
 
 # Directory
-alias	md='mkdir -p'
-alias	rd=rmdir
+alias md='mkdir -p'
+alias rd=rmdir
 
 #
 # GIT
@@ -39,16 +37,13 @@ alias	rd=rmdir
 #!/bin/bash
 
 # Aliases
-alias gcl='git clone'
-alias ga='git add'
-alias g='git'
-alias gst='git status'
+alias gap='git add -p'
 alias gs='git status'
 alias gl='git pull'
 alias gp='git push'
-alias gca='git commit -m'
-alias gb='git branch'
-alias gba='git branch -a'
-alias gcp='git cherry-pick'
+alias gc='git commit'
+alias gcm='git commit -m'
 alias gco='git checkout'
 alias gra='git ra'
+alias gg='git grep'
+alias gst='git diff --shortstat'
