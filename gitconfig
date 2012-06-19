@@ -11,7 +11,6 @@
 
 [github]
   user = masylum
-  token = ff5577333abf0a3ef0158d3f307d914d
 
 [core]
   editor = vim
