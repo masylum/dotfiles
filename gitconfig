@@ -46,3 +46,6 @@
 
 [merge]
   tool = vimdiff
+
+[push]
+  default = tracking
