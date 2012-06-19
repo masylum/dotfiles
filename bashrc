@@ -1,5 +1,11 @@
 # Load RVM, if you are using it
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+# [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
+# Enable rbenv
+if [ -d $HOME/.rbenv ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init - --no-rehash)"
+fi
 
 # Add rvm gems and nginx to the path
 export PATH=/usr/local/bin:/usr/local/mysql/bin:/usr/local/pear/bin:$PATH:~/.gem/ruby/1.8/bin:/opt/nginx/sbin:$HOME/local/node/bin
