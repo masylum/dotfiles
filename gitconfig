@@ -1,6 +1,6 @@
 [user]
-  name = Pau
-  email = masylum@gmail.com
+	name = Pau
+	email = masylum@gmail.com
 
 [branch "master"]
   remote = origin
@@ -14,7 +14,7 @@
 
 [core]
   editor = vim
-  excludesfile = /Users/masylum/.gitignore_global
+	excludesfile = /Users/masylum/.gitignore_global
 
 [alias]
   st = status
@@ -44,8 +44,16 @@
   l = "!source ~/.githelpers && pretty_git_log"
   la = !git l --all
 
+  ch = "!f() { git commit --allow-empty -m \"* $1\"; }; f"
+
 [merge]
   tool = vimdiff
 
 [push]
-  default = tracking
+	default = tracking
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

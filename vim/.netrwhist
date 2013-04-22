@@ -1,7 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/masylum/Downloads/Spaceport_SDK_v2.0.1/Sample_Apps/hello_world'
-let g:netrw_dirhist_2='/Library/Ruby/Gems/1.8/gems/trimmer-0.0.3'
-let g:netrw_dirhist_3='/Users/masylum/.rvm/gems/ruby-1.9.3-rc1@teambox/gems/mock_server-0.1.5'
-let g:netrw_dirhist_4='/Users/masylum/.rvm/gems/ruby-1.9.3-rc1@teambox/gems/trimmer-0.0.3'
-let g:netrw_dirhist_5='/Users/masylum/dotfiles/.git'
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/masylum/Sites/Teambox-hosted/vendor/bundle/ruby/1.9.1/gems/activerecord-3.1.6'
+let g:netrw_dirhist_2='/Users/masylum/Sites/Teambox-hosted/vendor/bundle/ruby/1.9.1/gems/immortal-1.0.5'
+let g:netrw_dirhist_3='/Users/masylum/Dropbox/dropbox-ruby-sdk-1.5.1'
+let g:netrw_dirhist_4='/Users/masylum/Downloads/pagosMovistar'
+let g:netrw_dirhist_5='/Users/masylum/Sites/Teambox-hosted/vendor/bundle/ruby/1.9.1/gems/activemodel-3.1.11'
+let g:netrw_dirhist_6='/Users/masylum/Sites/Teambox-hosted/vendor/bundle/ruby/1.9.1/gems/activerecord-3.1.11'
+let g:netrw_dirhist_7='/Users/masylum/Sites/Teambox-hosted/vendor/bundle/ruby/1.9.1/gems/dropbox-sdk-1.5.1'
+let g:netrw_dirhist_8='/Users/masylum/Sites/backbone.marionette'
+let g:netrw_dirhist_9='/Users/masylum/Sites/Teambox-hosted/vendor/bundle/ruby/1.9.1/bundler/gems/rabl-937817dfc7bd'

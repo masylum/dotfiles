@@ -1,5 +1,6 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+
 " CONF {
 " --------------------------------
 
@@ -13,7 +14,6 @@ set term=ansi
 set termencoding=utf-8
 set encoding=utf-8
 "}
-
 
 " VISUALS {
 " --------------------------------
@@ -32,42 +32,27 @@ syntax enable
 colorscheme molokai
 set background=dark
 
-set statusline=%F%m%r%h%w[%L]%y[%p%%][%04v]
-"              | | | | |  |   |      |  |     |    |
-"              | | | | |  |   |      |  |     |    + current
-"              | | | | |  |   |      |  |     |       column
-"              | | | | |  |   |      |  |     +-- current line
-"              | | | | |  |   |      |  +-- current % into file
-"              | | | | |  |   |      +-- current syntax in
-"              | | | | |  |   |          square brackets
-"              | | | | |  |   +-- current fileformat
-"              | | | | |  +-- number of lines
-"              | | | | +-- preview flag in square brackets
-"              | | | +-- help flag in square brackets
-"              | | +-- readonly flag in square brackets
-"              | +-- rodified flag in square brackets
-"              +-- full path to file in the buffer
-"}
-
-
 " PLUGINS {
 " --------------------------------
 
 " Minibuffer Explorer Settings
-let g:miniBufExplorerMoreThanOne = 1
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplorerMoreThanOne = 1   " Open only when having more than one buffer
+let g:miniBufExplMapCTabSwitchBufs = 1 " Control-tab switch buffers
+let g:miniBufExplUseSingleClick = 1    " Use single click
+let g:miniBufExplCheckDupeBufs = 0     " Disable duplicated names feature
+let g:miniBufExplShowBufNumbers = 0    " Omit buffer number
 let g:miniBufExplModSelTarget = 1
 
 " NERDTree
-let NERDTreeShowBookmarks = 1
-let NERDChristmasTree = 1
-let NERDTreeWinPos = "left"
+let NERDTreeWinPos = "left"      " left
+let NERDTreeMouseMode = 3        " single click
+let NERDTreeShowHidden = 1       " show hidden files
+let NERDTreeMinimalUI = 1        " without ? nor bookmarks
+let NERDTreeAutoDeleteBuffer = 1 " not sure
 "}
 
 " Powerline! yess!
-let g:Powerline_symbols = 'fancy'
+call vam#ActivateAddons(['powerline'])
 
 set tabstop=2 " Tabs are 2 spaces
 set softtabstop=2
@@ -96,7 +81,6 @@ set ignorecase
 set smartcase
 "}
 
-
 " Set terminal title to filename
 set title
 
@@ -112,7 +96,6 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 " }
-
 
 " Backups {
 set nobackup      " Real man don't use backups
