@@ -1,5 +1,6 @@
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+execute pathogen#infect()
+
+set shell=sh
 
 " CONF {
 " --------------------------------
@@ -50,9 +51,6 @@ let NERDTreeShowHidden = 1       " show hidden files
 let NERDTreeMinimalUI = 1        " without ? nor bookmarks
 let NERDTreeAutoDeleteBuffer = 1 " not sure
 "}
-
-" Powerline! yess!
-call vam#ActivateAddons(['powerline'])
 
 set tabstop=2 " Tabs are 2 spaces
 set softtabstop=2
