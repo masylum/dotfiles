@@ -51,6 +51,9 @@ let NERDTreeMouseMode = 3        " single click
 let NERDTreeMinimalUI = 1        " without ? nor bookmarks
 "}
 
+" vim-airline
+let g:airline_powerline_fonts = 1
+
 set tabstop=2 " Tabs are 2 spaces
 set softtabstop=2
 set shiftwidth=2 " Tabs under smart indent
@@ -109,5 +112,5 @@ if has("gui_running")
     set guioptions-=b " no scrollbar on the bottom
 
     set guifont=*
-    set guifont=Monaco\ for\ Powerline:h14
+    set guifont=Inconsolata\ for\ Powerline:h16
 endif
