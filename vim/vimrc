@@ -37,19 +37,18 @@ set background=dark
 " --------------------------------
 
 " Minibuffer Explorer Settings
+let g:miniBufExplMapWindowNavVim = 1   " Navigate windows with Ctrl-hjkl
 let g:miniBufExplorerMoreThanOne = 1   " Open only when having more than one buffer
 let g:miniBufExplMapCTabSwitchBufs = 1 " Control-tab switch buffers
 let g:miniBufExplUseSingleClick = 1    " Use single click
 let g:miniBufExplCheckDupeBufs = 0     " Disable duplicated names feature
-let g:miniBufExplShowBufNumbers = 0    " Omit buffer number
+let g:miniBufExplShowBufNumbers = 1    " Omit buffer number
 let g:miniBufExplModSelTarget = 1
 
 " NERDTree
 let NERDTreeWinPos = "left"      " left
 let NERDTreeMouseMode = 3        " single click
-let NERDTreeShowHidden = 1       " show hidden files
 let NERDTreeMinimalUI = 1        " without ? nor bookmarks
-let NERDTreeAutoDeleteBuffer = 1 " not sure
 "}
 
 set tabstop=2 " Tabs are 2 spaces

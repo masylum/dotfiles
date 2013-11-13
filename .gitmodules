@@ -13,3 +13,6 @@
 [submodule "vim/bundle/minibufexplorer"]
 	path = vim/bundle/minibufexplorer
 	url = git@github.com:fholgado/minibufexpl.vim.git
+[submodule "vim/bundle/vim-airline"]
+	path = vim/bundle/vim-airline
+	url = git@github.com:bling/vim-airline.git
