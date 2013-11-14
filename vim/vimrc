@@ -37,9 +37,7 @@ set background=dark
 " --------------------------------
 
 " Minibuffer Explorer Settings
-let g:miniBufExplMapWindowNavVim = 1   " Navigate windows with Ctrl-hjkl
 let g:miniBufExplorerMoreThanOne = 1   " Open only when having more than one buffer
-let g:miniBufExplMapCTabSwitchBufs = 1 " Control-tab switch buffers
 let g:miniBufExplUseSingleClick = 1    " Use single click
 let g:miniBufExplCheckDupeBufs = 0     " Disable duplicated names feature
 let g:miniBufExplShowBufNumbers = 1    " Omit buffer number
@@ -95,6 +93,11 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
+
+noremap <C-J>     <C-W>j
+noremap <C-K>     <C-W>k
+noremap <C-H>     <C-W>h
+noremap <C-L>     <C-W>l
 " }
 
 " Backups {
