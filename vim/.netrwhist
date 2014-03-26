@@ -1,11 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/masylum/Sites/Teambox-hosted/vendor/bundle/ruby/1.9.1/gems/activerecord-3.1.6'
-let g:netrw_dirhist_2='/Users/masylum/Sites/Teambox-hosted/vendor/bundle/ruby/1.9.1/gems/immortal-1.0.5'
-let g:netrw_dirhist_3='/Users/masylum/Dropbox/dropbox-ruby-sdk-1.5.1'
-let g:netrw_dirhist_4='/Users/masylum/Downloads/pagosMovistar'
-let g:netrw_dirhist_5='/Users/masylum/Sites/Teambox-hosted/vendor/bundle/ruby/1.9.1/gems/activemodel-3.1.11'
-let g:netrw_dirhist_6='/Users/masylum/Sites/Teambox-hosted/vendor/bundle/ruby/1.9.1/gems/activerecord-3.1.11'
-let g:netrw_dirhist_7='/Users/masylum/Sites/Teambox-hosted/vendor/bundle/ruby/1.9.1/gems/dropbox-sdk-1.5.1'
-let g:netrw_dirhist_8='/Users/masylum/Sites/backbone.marionette'
-let g:netrw_dirhist_9='/Users/masylum/Sites/Teambox-hosted/vendor/bundle/ruby/1.9.1/bundler/gems/rabl-937817dfc7bd'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/Users/pauramonrevilla/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/paperclip-3.5.2'
+let g:netrw_dirhist_2='/Users/pauramonrevilla/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/rails-3.1.12'

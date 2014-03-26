@@ -30,7 +30,7 @@ set listchars=tab:->,trail:_
 set wildmenu
 
 syntax enable
-colorscheme molokai
+colorscheme dracula
 set background=dark
 
 " PLUGINS {
@@ -51,6 +51,14 @@ let NERDTreeMinimalUI = 1        " without ? nor bookmarks
 
 " vim-airline
 let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_section_z=''
+
+" vim-ctrlp
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+let g:ctrlp_use_caching = 0
 
 set tabstop=2 " Tabs are 2 spaces
 set softtabstop=2

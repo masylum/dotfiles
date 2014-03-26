@@ -27,6 +27,7 @@ alias octave="/Applications/Octave.app/Contents/Resources/bin/octave"
 alias gnuplot="/Applications/Gnuplot.app/Contents/Resources/bin/gnuplot"
 
 alias sort="/usr/local/bin/gsort"
+alias xargs="/usr/local/bin/gxargs"
 
 source ~/bin/bash_alias.sh
 

@@ -45,6 +45,7 @@
   la = !git l --all
 
   ch = "!f() { git commit --allow-empty -m \"* $1\"; }; f"
+	g = grep --line-number
 
 [merge]
   tool = vimdiff
@@ -57,3 +58,6 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[grep]
+	lineNumber = true
+	extendRegexp = true
