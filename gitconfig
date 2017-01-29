@@ -1,5 +1,5 @@
 [user]
-	name = Pau
+	name = Pau Ramon Revilla
 	email = masylum@gmail.com
 
 [branch "master"]
@@ -44,7 +44,7 @@
   l = "!source ~/.githelpers && pretty_git_log"
   la = !git l --all
 
-  ch = "!f() { git commit --allow-empty -m \"* $1\"; }; f"
+  ce = "!f() { git commit --allow-empty -m \"* $1\"; }; f"
 	g = grep --line-number
 
 [merge]
@@ -61,3 +61,17 @@
 [grep]
 	lineNumber = true
 	extendRegexp = true
+
+[merge "railsschema"]
+        name = newer Rails schema version
+        driver = "ruby -e '\n\
+                system %(git), %(merge-file), %(--marker-size=%L), %(%A), %(%O), %(%B)\n\
+                b = File.read(%(%A))\n\
+                b.sub!(/^<+ .*\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n=+\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n>+ .*/) do\n\
+                  %(ActiveRecord::Schema.define(:version => #{[$1, $2].max}) do)\n\
+                end\n\
+                File.open(%(%A), %(w)) {|f| f.write(b)}\n\
+                exit 1 if b.include?(%(<)*%L)'"
+[rebase]
+	autosquash = true
+	autostash = true

@@ -1,4 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Users/pauramonrevilla/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/paperclip-3.5.2'
-let g:netrw_dirhist_2='/Users/pauramonrevilla/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/rails-3.1.12'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/pauramonrevilla/Sites/teambox-frontend/script'
+let g:netrw_dirhist_2='/Users/pauramonrevilla/Sites/teambox-frontend/app'
+let g:netrw_dirhist_3='/Users/pauramonrevilla/dotfiles/vim/vim'
+let g:netrw_dirhist_4='/Users/pauramonrevilla/Sites/Teambox-hosted/.git'
+let g:netrw_dirhist_5='/Users/pauramonrevilla/Sites/Teambox-hosted/vendor/apps/tinbox'

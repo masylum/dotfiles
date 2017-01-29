@@ -1,6 +1,7 @@
 execute pathogen#infect()
 
 set shell=sh
+set synmaxcol=200
 
 " CONF {
 " --------------------------------
@@ -23,14 +24,15 @@ set showmatch " show matching brackets
 set showcmd
 
 " show hidden chars
-set list
-set listchars=tab:->,trail:_
+" set list
+" set listchars=tab:->,trail:_
 
 "Show menu with possible tab competions
 set wildmenu
 
 syntax enable
-colorscheme dracula
+" colorscheme dracula
+colorscheme nova
 set background=dark
 
 " PLUGINS {
@@ -42,6 +44,9 @@ let g:miniBufExplUseSingleClick = 1    " Use single click
 let g:miniBufExplCheckDupeBufs = 0     " Disable duplicated names feature
 let g:miniBufExplShowBufNumbers = 1    " Omit buffer number
 let g:miniBufExplModSelTarget = 1
+
+" Javascript
+let g:javascript_plugin_flow = 1
 
 " NERDTree
 let NERDTreeWinPos = "left"      " left
@@ -56,9 +61,20 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_section_z=''
 
+" Fugitive
+" :command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
+
 " vim-ctrlp
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 let g:ctrlp_use_caching = 0
+
+" ultisnip
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical"
+" ---------------------------------------------------
+" }
 
 set tabstop=2 " Tabs are 2 spaces
 set softtabstop=2
@@ -95,13 +111,23 @@ set title
 vnoremap < <gv
 vnoremap > >gv
 
+" Git grep
+" nnoremap <leader>g :Ggr <C-R><C-W><CR>
+" nnoremap <leader>* :Ggr -i 
+
+" Apply . repeats to the visual block
+vnoremap . :normal .<CR>
+
 map Y y$
-map <leader>n <ESC>:NERDTreeToggle<RETURN>
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
+" Window navigation mappings
+map <leader>n <ESC>:NERDTreeToggle<RETURN>
+map <leader>f <ESC>:NERDTreeFind<RETURN>
+map <leader>s <ESC>:SyntasticCheck<RETURN>
 noremap <C-J>     <C-W>j
 noremap <C-K>     <C-W>k
 noremap <C-H>     <C-W>h
@@ -109,7 +135,7 @@ noremap <C-L>     <C-W>l
 " }
 
 " Backups {
-set nobackup      " Real man don't use backups
+set nobackup
 set nowritebackup
 set noswapfile
 " }
@@ -123,5 +149,5 @@ if has("gui_running")
     set guioptions-=b " no scrollbar on the bottom
 
     set guifont=*
-    set guifont=Inconsolata\ for\ Powerline:h16
+    set guifont=Knack\ Regular\ Nerd\ Font\ Complete:h14
 endif
