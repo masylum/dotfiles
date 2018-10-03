@@ -11,11 +11,15 @@ let mapleader = ","
 set nocompatible " We don't want vi compatibility.
 
 " Ignore extension files
-set wildignore=*.dll,*.o,*.obj,*.bak,*.pyc,*.swp,*/.git/*,*/.svn/* " ignore these"
 set term=ansi
 set termencoding=utf-8
 set encoding=utf-8
+scriptencoding utf-8
 "}
+
+" Decrease vim command timeout
+set ttimeout
+set ttimeoutlen=100
 
 " VISUALS {
 " --------------------------------
@@ -23,17 +27,22 @@ set nowrap
 set showmatch " show matching brackets
 set showcmd
 
-" show hidden chars
-" set list
-" set listchars=tab:->,trail:_
-
 "Show menu with possible tab competions
 set wildmenu
+set wildmode=list:longest,list:full
+set wildignore+=.git,.svn
+set wildignore+=*.o,*.obj,*.jpg,*.png,*.gif,*.log,*.gz,*.bin,*.gem,*.rbc,*.class
+set wildignore+=*.min.js,**/node_modules/**,**/images/**
+set wildignore+=**/assets/**/original/**,**/assets/**/thumb/**,**/assets/**/small/**
+set wildignore+=tmp,public,vendor/bundle/*,vendor/cache/*,test/fixtures/*,vendor/gems/*,spec/cov,a/*
 
 syntax enable
-" colorscheme dracula
-colorscheme nova
+:set t_Co=256 " For certain color-limited terminals
+colorscheme dracula
+" colorscheme nova
+" colorscheme gruvbox
 set background=dark
+"}
 
 " PLUGINS {
 " --------------------------------
@@ -45,8 +54,13 @@ let g:miniBufExplCheckDupeBufs = 0     " Disable duplicated names feature
 let g:miniBufExplShowBufNumbers = 1    " Omit buffer number
 let g:miniBufExplModSelTarget = 1
 
+" Vim test
+let test#strategy = "dispatch"
+let test#ruby#rspec#executable = 'bundle exec rspec %'
+nnoremap <leader>t :TestNearest<cr>
+
 " Javascript
-let g:javascript_plugin_flow = 1
+" let g:javascript_plugin_flow = 1
 
 " NERDTree
 let NERDTreeWinPos = "left"      " left
@@ -61,8 +75,25 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_section_z=''
 
+" Neomake
+autocmd! BufReadPost,BufWritePost * Neomake
+
+let g:neomake_ruby_enabled_makers = ['rubocop', 'reek']
+let g:neomake_ruby_rubocop_maker = { 'exe': 'bundle', 'args': ['exec', 'rubocop', '--format', 'emacs'] }
+let g:neomake_ruby_reek_maker = { 'exe': 'bundle', 'args': ['exec', 'reek'] }
+let g:neomake_javascript_enabled_makers = ['eslint']
+
+" Grepper
+nnoremap <leader>g :Grepper<cr>
+let g:grepper = { 'next_tool': '<leader>g' }
+" Use `gs` to search the current visual selection
+" or with a motion (like gsiw)
+nmap gs  <plug>(GrepperOperator)
+xmap gs  <plug>(GrepperOperator)
+
 " Fugitive
 " :command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
+let g:jsx_ext_required = 0
 
 " vim-ctrlp
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
@@ -85,7 +116,7 @@ filetype plugin indent on
 set smarttab
 set expandtab
 
-"Curor line
+"Cursor line
 set cursorline
 set number
 
@@ -111,12 +142,11 @@ set title
 vnoremap < <gv
 vnoremap > >gv
 
-" Git grep
-" nnoremap <leader>g :Ggr <C-R><C-W><CR>
-" nnoremap <leader>* :Ggr -i 
-
 " Apply . repeats to the visual block
 vnoremap . :normal .<CR>
+
+" Remove the highlighted search after two esc
+nnoremap <esc><esc> :noh<return><esc>
 
 map Y y$
 map <up> <nop>
@@ -124,10 +154,12 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
+" Paste mode toggler
+map <leader>p :set invpaste paste?<CR>
+
 " Window navigation mappings
 map <leader>n <ESC>:NERDTreeToggle<RETURN>
 map <leader>f <ESC>:NERDTreeFind<RETURN>
-map <leader>s <ESC>:SyntasticCheck<RETURN>
 noremap <C-J>     <C-W>j
 noremap <C-K>     <C-W>k
 noremap <C-H>     <C-W>h
