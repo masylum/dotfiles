@@ -8,9 +8,6 @@ alias c='clear'
 alias k='clear'
 
 alias edit="$EDITOR"
-alias pager="$PAGER"
-
-alias irc="$IRC_CLIENT"
 
 alias ..='cd ..'         # Go up one directory
 alias ...='cd ../..'     # Go up two directories

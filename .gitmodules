@@ -28,3 +28,27 @@
 [submodule "vim/bundle/vim-wordy"]
 	path = vim/bundle/vim-wordy
 	url = https://github.com/reedes/vim-wordy.git
+[submodule "vim/bundle/neomake"]
+	path = vim/bundle/neomake
+	url = git@github.com:neomake/neomake.git
+[submodule "vim/bundle/nerdtree-git-plugin"]
+	path = vim/bundle/nerdtree-git-plugin
+	url = git@github.com:Xuyuanp/nerdtree-git-plugin.git
+[submodule "vim/bundle/vim-eighties"]
+	path = vim/bundle/vim-eighties
+	url = git@github.com:justincampbell/vim-eighties.git
+[submodule "vim/bundle/vim-flow"]
+	path = vim/bundle/vim-flow
+	url = git@github.com:flowtype/vim-flow.git
+[submodule "vim/bundle/vim-javascript"]
+	path = vim/bundle/vim-javascript
+	url = git@github.com:pangloss/vim-javascript.git
+[submodule "vim/bundle/vim-jsx"]
+	path = vim/bundle/vim-jsx
+	url = git@github.com:mxw/vim-jsx.git
+[submodule "vim/vim-repeat"]
+	path = vim/vim-repeat
+	url = git@github.com:tpope/vim-repeat.git
+[submodule "vim/vim-test"]
+	path = vim/vim-test
+	url = git@github.com:janko-m/vim-test.git
