@@ -1,3 +1,5 @@
+#!/bin/bash
+
 . ~/bin/bash_colors.sh
 . ~/bin/bash_alias.sh
 
@@ -22,6 +24,11 @@ export HISTCONTROL=erasedups
 export HISTSIZE=10000
 # Append to the history file when exiting instead of overwriting it
 shopt -s histappend
+
+function __git_dirty {  function minutes_since_last_commit {
+  git diff --quiet HEAD &>/dev/null
+  [ $? == 1 ] && echo "!"
+}
 
 grb_git_prompt() {
     local g="$(__gitdir)"
