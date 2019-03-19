@@ -4,7 +4,7 @@
 . ~/bin/bash_alias.sh
 
 # Hack for Factorial
-export $OS="OSX"
+export OS="OSX"
 
 # Enable rbenv
 if [ -d $HOME/.rbenv ]; then
