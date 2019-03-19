@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/pauramonrevilla/Sites/teambox-frontend/script'
-let g:netrw_dirhist_2='/Users/pauramonrevilla/Sites/teambox-frontend/app'
-let g:netrw_dirhist_3='/Users/pauramonrevilla/dotfiles/vim/vim'
-let g:netrw_dirhist_4='/Users/pauramonrevilla/Sites/Teambox-hosted/.git'
-let g:netrw_dirhist_5='/Users/pauramonrevilla/Sites/Teambox-hosted/vendor/apps/tinbox'
