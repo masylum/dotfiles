@@ -3,6 +3,18 @@
 . ~/bin/bash_colors.sh
 . ~/bin/bash_alias.sh
 
+# Hack for Factorial
+export $OS="OSX"
+
+# Enable rbenv
+if [ -d $HOME/.rbenv ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init - --no-rehash)"
+fi
+
+# Add rvm gems and nginx to the path
+export PATH=/usr/local/bin:$PATH:/opt/nginx/sbin:$HOME/local/node/bin:/usr/local/sbin
+
 # Set the editor and git editor
 export EDITOR="/usr/bin/vim"
 
