@@ -47,11 +47,11 @@ grb_git_prompt() {
     if [ -n "$g" ]; then
         local IS_DIRTY="$(__git_dirty)"
         # The __git_ps1 function inserts the current git branch where %s is
-        local GIT_PROMPT=`__git_ps1 "${BRIGHT_BLUE}(%s${BRIGHT_RED}${IS_DIRTY}${BRIGHT_BLUE})${NORMAL}"`
+        local GIT_PROMPT=`__git_ps1 "(%s${IS_DIRTY})"`
         echo ${GIT_PROMPT}
     fi
 }
 
 source ~/bin/git-completion.bash
 
-PS1="${GREEN}\w${NORMAL}\$(grb_git_prompt) "
+PS1="\[\033[01;32m\]\w\[\033[01;34m\]\$(grb_git_prompt) \[\033[00m\]\$ "
