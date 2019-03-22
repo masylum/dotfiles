@@ -52,3 +52,6 @@
 [submodule "vim/vim-test"]
 	path = vim/vim-test
 	url = git@github.com:janko-m/vim-test.git
+[submodule "vim/bundle/vim-airline-themes"]
+	path = vim/bundle/vim-airline-themes
+	url = git@github.com:vim-airline/vim-airline-themes.git
