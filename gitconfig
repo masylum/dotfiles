@@ -25,7 +25,7 @@
   tool = vimdiff
 
 [push]
-	default = tracking
+	default = current
 
 [grep]
 	lineNumber = true
