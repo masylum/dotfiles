@@ -34,3 +34,5 @@
 [rebase]
 	autosquash = true
 	autostash = true
+[branch]
+	autosetuprebase = always
