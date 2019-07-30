@@ -36,6 +36,7 @@ set wildignore+=*.o,*.obj,*.jpg,*.png,*.gif,*.log,*.gz,*.bin,*.gem,*.rbc,*.class
 set wildignore+=*.min.js,**/node_modules/**,**/images/**
 set wildignore+=**/assets/**/original/**,**/assets/**/thumb/**,**/assets/**/small/**
 set wildignore+=tmp,public,vendor/bundle/*,vendor/cache/*,test/fixtures/*,vendor/gems/*,spec/cov,a/*
+set wildignore+=sorbet/*
 
 syntax enable
 :set t_Co=256 " For certain color-limited terminals
@@ -60,9 +61,6 @@ let test#strategy = "dispatch"
 let test#ruby#rspec#executable = 'bundle exec rspec %'
 nnoremap <leader>t :TestNearest<cr>
 
-" Javascript
-" let g:javascript_plugin_flow = 1
-
 " NERDTree
 let NERDTreeWinPos = "left"      " left
 let NERDTreeMouseMode = 3        " single click
@@ -76,7 +74,7 @@ let g:airline#extensions#neomake#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 
 " Neomake
-autocmd! BufReadPost,BufWritePost * Neomake
+" autocmd! BufReadPost,BufWritePost * Neomake
 
 let g:neomake_ruby_enabled_makers = ['rubocop', 'reek']
 let g:neomake_ruby_rubocop_maker = { 'exe': 'bundle', 'args': ['exec', 'rubocop', '--format', 'emacs'] }
