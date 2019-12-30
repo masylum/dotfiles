@@ -1,184 +1,226 @@
-execute pathogen#infect()
+" PLUG {
+" ====
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree' " TODO: Configure
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'justincampbell/vim-eighties'
+Plug 'vim-airline/vim-airline' " TODO: Configure
+Plug 'tommcdo/vim-exchange' " TODO: Practice
+Plug 'tpope/vim-fugitive' " TODO: Practice
+Plug 'tpope/vim-rhubarb' " TODO: Configure + Learn
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-surround' " TODO: Use more
+Plug 'tpope/vim-repeat'
+Plug 'janko/vim-test' " TODO: Config
+Plug 'svermeulen/vim-cutlass' " TODO: Practice
+Plug 'svermeulen/vim-yoink' " TODO: Practice
+Plug 'svermeulen/vim-subversive' " TODO: Practice
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'wellle/targets.vim' " TODO: Practice
+Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-emoji'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/vim-slash' " Better / and *
+Plug 'junegunn/vim-easy-align' " TODO: Practice
+Plug 'junegunn/gv.vim' " TODO: Practice
+Plug 'junegunn/vim-peekaboo' " TODO: Practice
+Plug 'junegunn/vim-after-object' " TODO: Practice
+" TODO: Coc
+" TODO: Ultisnip
+call plug#end()
+" }
 
-set shell=sh
-set synmaxcol=200
-
-" CONF {
-" --------------------------------
-
-"Set leader key
-let mapleader = ","
-set nocompatible " We don't want vi compatibility.
-
-" Ignore extension files
-set term=ansi
-set termencoding=utf-8
-set encoding=utf-8
-scriptencoding utf-8
-"}
-
-" Decrease vim command timeout
-set ttimeout
-set ttimeoutlen=100
-
-" VISUALS {
-" --------------------------------
-set nowrap
+" CONFIG {
+" ======
+set shell=sh " TODO: review
+set synmaxcol=200 " TODO: review
+set nowrap " TODO: doc
 set showmatch " show matching brackets
-set showcmd
-set listchars=eol:⏎,tab:␉·,trail:␠
-
-"Show menu with possible tab competions
-set wildmenu
-set wildmode=list:longest,list:full
+set wildmode=list:longest,list:full "Show menu with possible tab competions
 set wildignore+=.git,.svn
 set wildignore+=*.o,*.obj,*.jpg,*.png,*.gif,*.log,*.gz,*.bin,*.gem,*.rbc,*.class
 set wildignore+=*.min.js,**/node_modules/**,**/images/**
 set wildignore+=**/assets/**/original/**,**/assets/**/thumb/**,**/assets/**/small/**
 set wildignore+=tmp,public,vendor/bundle/*,vendor/cache/*,test/fixtures/*,vendor/gems/*,spec/cov,a/*
 set wildignore+=sorbet/*
-
 syntax enable
-:set t_Co=256 " For certain color-limited terminals
+:set t_Co=256 " TODO: For certain color-limited terminals
 colorscheme dracula
-" colorscheme nova
-" colorscheme gruvbox
-set background=dark
-"}
+set tabstop=2 " Tabs are 2 spaces
+set softtabstop=2 " TODO: Document
+set shiftwidth=2 " Tabs under smart indent
+set smartindent " TODO: Document
+filetype plugin indent on " TODO: Document
+set smarttab " TODO: Document
+set expandtab " TODO: Document
+set cursorline " TODO: Document
+set number " TODO: Document
+set hidden " allow switching buffers without writing to disk
+set ignorecase " TODO: Document
+set smartcase " TODO: Document
+set title " Set terminal title to filename
+set nobackup " TODO: Document
+set nowritebackup " TODO: Document
+set noswapfile " TODO: Document
+set updatetime=100 " Throttle to write on disk (default is 4s). This also governs the 'after save (CursorHold)' hooks
+if exists('&inccommand')
+  set inccommand=nosplit " Shows the effects of a command incrementally as you type
+endif
+" }
+
+" MAPPINGS {
+" ========
+let mapleader = ' ' " Set leader key
+
+vnoremap < <gv " TODO: Document
+vnoremap > >gv " TODO: Document
+vnoremap . :normal .<CR> " Apply . repeats to the visual block
+nnoremap <esc><esc> :noh<return><esc> " Remove the highlighted search after two esc
+map Y y$ " TODO: Document
+map <leader>p :set invpaste paste?<CR> " paste mode toggler
+
+" window navigation mappings
+noremap <C-J> <C-W>j
+noremap <C-K> <C-W>k
+noremap <C-H> <C-W>h
+noremap <C-L> <C-W>l
 
 " PLUGINS {
-" --------------------------------
+" =======
 
-" Minibuffer Explorer Settings
-let g:miniBufExplorerMoreThanOne = 1   " Open only when having more than one buffer
-let g:miniBufExplUseSingleClick = 1    " Use single click
-let g:miniBufExplCheckDupeBufs = 0     " Disable duplicated names feature
-let g:miniBufExplShowBufNumbers = 1    " Omit buffer number
-let g:miniBufExplModSelTarget = 1
-
-" Vim test
-let test#strategy = "dispatch"
+" vim-test {
 let test#ruby#rspec#executable = 'bundle exec rspec %'
 nnoremap <leader>t :TestNearest<cr>
+" }
 
-" NERDTree
-let NERDTreeWinPos = "left"      " left
-let NERDTreeMouseMode = 3        " single click
-let NERDTreeMinimalUI = 1        " without ? nor bookmarks
+" nerdtree {
+let NERDTreeWinPos = 'left' " left
+let NERDTreeMinimalUI = 1   " without ? nor bookmarks
+map <leader>n <ESC>:NERDTreeToggle<RETURN>
+map <leader>f <ESC>:NERDTreeFind<RETURN>
 "}
 
-" vim-airline
-let g:airline_powerline_fonts = 1
+" vim-airline {
+" TODO: Look at extensions
 let g:airline_theme='dracula'
-let g:airline#extensions#neomake#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-
-" Neomake
-" autocmd! BufReadPost,BufWritePost * Neomake
-
-let g:neomake_ruby_enabled_makers = ['rubocop', 'reek']
-let g:neomake_ruby_rubocop_maker = { 'exe': 'bundle', 'args': ['exec', 'rubocop', '--format', 'emacs'] }
-let g:neomake_ruby_reek_maker = { 'exe': 'bundle', 'args': ['exec', 'reek'] }
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
-
-" Grepper
-nnoremap <leader>g :Grepper<cr>
-let g:grepper = { 'next_tool': '<leader>g' }
-" Use `gs` to search the current visual selection
-" or with a motion (like gsiw)
-nmap gs  <plug>(GrepperOperator)
-xmap gs  <plug>(GrepperOperator)
+" }
 
 " Fugitive
 " :command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
 let g:jsx_ext_required = 0
 
 " vim-ctrlp
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-let g:ctrlp_use_caching = 0
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+" let g:ctrlp_use_caching = 0
 
 " ultisnip
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" let g:UltiSnipsEditSplit="vertical"
 " ---------------------------------------------------
 " }
 
-set tabstop=2 " Tabs are 2 spaces
-set softtabstop=2
-set shiftwidth=2 " Tabs under smart indent
-set autoindent
-set smartindent
-filetype plugin indent on
-set smarttab
-set expandtab
+" rainbow_parentheses {
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+" }
 
-"Cursor line
-set cursorline
-set number
+" vim-yoink {
+let g:yoinkIncludeDeleteOperations=1                  " make it compatible with vim-cutlass
+nmap <c-n> <plug>(YoinkPostPasteSwapBack)
+nmap <c-p> <plug>(YoinkPostPasteSwapForward)
+nmap p <plug>(YoinkPaste_p)
+nmap P <plug>(YoinkPaste_P)
+" }
 
-"Allow switching buffers without writing to disk
-set hidden
+" vim-cutlass {
+nnoremap m d
+xnoremap m d
+nnoremap mm dd
+nnoremap M D
+" }
 
-" SEARCH {
-" --------------------------------
-" Set incremental search
-set incsearch
-set hlsearch
+" vim-subversive {
+nmap s <plug>(SubversiveSubstitute)
+xmap s <plug>(SubversiveSubstitute)
+nmap ss <plug>(SubversiveSubstituteLine)
+nmap S <plug>(SubversiveSubstituteToEndOfLine)
+nmap <leader>s <plug>(SubversiveSubstituteRange)
+xmap <leader>s <plug>(SubversiveSubstituteRange)
+nmap <leader>ss <plug>(SubversiveSubstituteWordRange)
+xmap p <plug>(SubversiveSubstitute)
+xmap P <plug>(SubversiveSubstitute)
+" }
 
-" Set ignorecase
-set ignorecase
-set smartcase
+" ale {
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+let g:airline#extensions#ale#enabled = 1      " Integrate with vim-airline
+let g:ale_lint_on_text_changed = 'never'      " Do not run when text changes
+let g:ale_sign_column_always = 1              " Always show the sign column
+let g:ale_linter_aliases = {
+\ 'typescriptreact': 'typescript',
+\ 'javascriptreact': 'javascript'
+\}
+let g:ale_linters = {
+\ 'javascript': ['eslint'],
+\ 'typescript': ['tsserver', 'tslint', 'eslint'],
+\ 'ruby': ['rubocop', 'ruby']
+\}
+let g:ale_fixers = {
+\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ 'javascript': ['eslint', 'prettier'],
+\ 'typescript': ['prettier'],
+\ 'typescriptreact': ['prettier'],
+\ 'jsx': ['eslint']
+\}
+nnoremap <silent><leader>lf :ALEFix<CR>
+nnoremap <silent><leader>lo :lopen<CR>
+nnoremap <silent><leader>lc :lclose<CR>
 "}
 
-" Set terminal title to filename
-set title
+" fzf
+let g:fzf_command_prefix = 'FZF'
+let $FZF_DEFAULT_COMMAND = 'rg --files'
+nnoremap <leader><leader>f :FZFFiles<cr>
+nnoremap <leader><leader>b :FZFBuffers<cr>
+nnoremap <leader><leader>g :FZFRg<space>
+nnoremap <leader><leader>v :FZFRg <c-r><c-w><cr>
+"}
 
-" Mappings {
+"vim-emoji {
+set completefunc=emoji#complete " To be used with C-x C-u
+"}
 
-vnoremap < <gv
-vnoremap > >gv
-
-" Apply . repeats to the visual block
-vnoremap . :normal .<CR>
-
-" Remove the highlighted search after two esc
-nnoremap <esc><esc> :noh<return><esc>
-
-map Y y$
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-
-" Paste mode toggler
-map <leader>p :set invpaste paste?<CR>
-
-" Window navigation mappings
-map <leader>n <ESC>:NERDTreeToggle<RETURN>
-map <leader>f <ESC>:NERDTreeFind<RETURN>
-noremap <C-J>     <C-W>j
-noremap <C-K>     <C-W>k
-noremap <C-H>     <C-W>h
-noremap <C-L>     <C-W>l
+" vim-gitgutter {
+let g:gitgutter_map_keys = 0 " Do not remap any keys
 " }
 
-" Backups {
-set nobackup
-set nowritebackup
-set noswapfile
+" vim-easy-align {
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 " }
 
-" GUI STUFF
+" vim-after-object {
+autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
+" }
+
+" GUI STUFF {
+" =========
 if has("gui_running")
-    set guioptions-=T " no toolbar set guioptions-=m " no menus
-    set guioptions-=r " no scrollbar on the right
-    set guioptions-=R " no scrollbar on the right
-    set guioptions-=l " no scrollbar on the left
-    set guioptions-=b " no scrollbar on the bottom
+  set guioptions-=T " no toolbar set guioptions-=m " no menus
+  set guioptions-=r " no scrollbar on the right
+  set guioptions-=R " no scrollbar on the right
+  set guioptions-=l " no scrollbar on the left
+  set guioptions-=b " no scrollbar on the bottom
 
-    set guifont=*
-    set guifont=Knack\ Regular\ Nerd\ Font\ Complete:h14
+  set guifont=*
+  set guifont=Knack\ Regular\ Nerd\ Font\ Complete:h14
 endif
+" }
