@@ -193,11 +193,14 @@ nnoremap <leader>lc :lclose<CR>
 
 " fzf
 let g:fzf_command_prefix = 'FZF'
-let $FZF_DEFAULT_COMMAND = 'rg --files'
+command! -bang -nargs=* FZFGGrep
+\ call fzf#vim#grep(
+\   'git grep --line-number '.shellescape(<q-args>), 0,
+\   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 nnoremap <leader><leader>f :FZFFiles<cr>
 nnoremap <leader><leader>b :FZFBuffers<cr>
-nnoremap <leader><leader>g :FZFRg<space>
-nnoremap <leader><leader>v :FZFRg <c-r><c-w><cr>
+nnoremap <leader><leader>g :FZFGGrep<space>
+nnoremap <leader><leader>v :FZFGGrep <c-r><c-w><cr>
 "}
 
 "vim-emoji {
