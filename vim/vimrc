@@ -33,7 +33,7 @@ Plug 'FooSoft/vim-argwrap'                                        " TODO: Practi
 Plug 'AndrewRadev/splitjoin.vim'                                  " TODO: Practice
 Plug 'junegunn/vim-plug'                                          " TODO: Practice
 " Plug 'sirver/ultisnips'                                         " TODO: Configure + Learn
-Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}          " TODO: Configure + Learn
+" Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}          " TODO: Configure + Learn
 Plug 'brooth/far.vim'                                             " TODO: Learn
 Plug 'romainl/vim-qf'                                             " TODO: Learn
 call plug#end()
