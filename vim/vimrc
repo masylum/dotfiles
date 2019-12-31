@@ -1,36 +1,41 @@
 " PLUG {
 " ====
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-sensible' " tim pope's defaults
-Plug 'scrooloose/nerdtree' " TODO: Configure
+Plug 'tpope/vim-sensible'                                         " tim pope's defaults
+Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'justincampbell/vim-eighties'
-Plug 'vim-airline/vim-airline' " TODO: Configure
-Plug 'tommcdo/vim-exchange' " TODO: Practice
-Plug 'tpope/vim-fugitive' " TODO: Practice
-Plug 'tpope/vim-rhubarb' " TODO: Configure + Learn
+Plug 'vim-airline/vim-airline'                                    " TODO: Configure
+Plug 'tommcdo/vim-exchange'                                       " TODO: Practice
+Plug 'tpope/vim-fugitive'                                         " TODO: Practice
+Plug 'tpope/vim-rhubarb'                                          " TODO: Configure + Learn
 Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-surround' " TODO: Use more
+Plug 'tpope/vim-surround'                                         " TODO: Use more
 Plug 'tpope/vim-repeat'
-Plug 'janko/vim-test' " TODO: Config
-Plug 'svermeulen/vim-cutlass' " TODO: Practice
-Plug 'svermeulen/vim-yoink' " TODO: Practice
-Plug 'svermeulen/vim-subversive' " TODO: Practice
+Plug 'janko/vim-test'                                             " TODO: Config
+Plug 'svermeulen/vim-cutlass'                                     " TODO: Practice
+Plug 'svermeulen/vim-yoink'                                       " TODO: Practice
+Plug 'svermeulen/vim-subversive'                                  " TODO: Practice
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'wellle/targets.vim' " TODO: Practice
+Plug 'wellle/targets.vim'                                         " TODO: Practice
 Plug 'dense-analysis/ale'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " TODO: Practice
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-emoji'
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/vim-slash' " Better / and *
-Plug 'junegunn/vim-easy-align' " TODO: Practice
-Plug 'junegunn/gv.vim' " TODO: Practice
-Plug 'junegunn/vim-peekaboo' " TODO: Practice
-Plug 'junegunn/vim-after-object' " TODO: Practice
-" TODO: Coc
-" TODO: Ultisnip
+Plug 'junegunn/vim-slash'                                         " Better / and *
+Plug 'junegunn/vim-easy-align'                                    " TODO: Practice
+Plug 'junegunn/gv.vim'                                            " TODO: Practice
+Plug 'junegunn/vim-peekaboo'                                      " TODO: Practice
+Plug 'junegunn/vim-after-object'                                  " TODO: Practice
+Plug 'FooSoft/vim-argwrap'                                        " TODO: Practice
+Plug 'AndrewRadev/splitjoin.vim'                                  " TODO: Practice
+Plug 'junegunn/vim-plug'                                          " TODO: Practice
+" Plug 'sirver/ultisnips'                                         " TODO: Configure + Learn
+Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}          " TODO: Configure + Learn
+Plug 'brooth/far.vim'                                             " TODO: Learn
+Plug 'romainl/vim-qf'                                             " TODO: Learn
 call plug#end()
 " }
 
@@ -63,13 +68,16 @@ set nowritebackup " TODO: Document
 set noswapfile " TODO: Document
 set updatetime=100 " Throttle to write on disk (default is 4s). This also governs the 'after save (CursorHold)' hooks
 if exists('&inccommand')
-  set inccommand=nosplit " Shows the effects of a command incrementally as you type
+  set inccommand=nosplit " shows the effects of a command incrementally as you type
 endif
+" highlight all non ascii characters
+syntax match nonascii "[^\x00-\xFF]"
+highlight nonascii guibg=Red ctermbg=2
 " }
 
 " MAPPINGS {
 " ========
-let mapleader = ' ' " Set leader key
+let mapleader = ' ' " set leader key
 
 vnoremap < <gv " TODO: Document
 vnoremap > >gv " TODO: Document
@@ -84,6 +92,11 @@ noremap <C-K> <C-W>k
 noremap <C-H> <C-W>h
 noremap <C-L> <C-W>l
 
+" append characters end of line
+nnoremap <leader>, A,<ESC>
+nnoremap <leader>; A;<ESC>
+nnoremap <leader>: A:<ESC>
+
 " PLUGINS {
 " =======
 
@@ -95,6 +108,7 @@ nnoremap <leader>t :TestNearest<cr>
 " nerdtree {
 let NERDTreeWinPos = 'left' " left
 let NERDTreeMinimalUI = 1   " without ? nor bookmarks
+let NERDTreeIgnore=['node_modules$[[dir]]']
 map <leader>n <ESC>:NERDTreeToggle<RETURN>
 map <leader>f <ESC>:NERDTreeFind<RETURN>
 "}
@@ -104,20 +118,16 @@ map <leader>f <ESC>:NERDTreeFind<RETURN>
 let g:airline_theme='dracula'
 " }
 
-" Fugitive
-" :command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
-let g:jsx_ext_required = 0
+" vim-fugitive {
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gd :Gvdiff<CR>
+nnoremap <leader>gb :Gblame<CR>
+" }
 
-" vim-ctrlp
-" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-" let g:ctrlp_use_caching = 0
-
-" ultisnip
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-" let g:UltiSnipsEditSplit="vertical"
-" ---------------------------------------------------
+" vim-gv {
+nnoremap <leader>gl :GV!<CR>
+nnoremap <leader>gL :GV<CR>
 " }
 
 " rainbow_parentheses {
@@ -128,7 +138,7 @@ au Syntax * RainbowParenthesesLoadBraces
 " }
 
 " vim-yoink {
-let g:yoinkIncludeDeleteOperations=1                  " make it compatible with vim-cutlass
+let g:yoinkIncludeDeleteOperations=1 " make it compatible with vim-cutlass
 nmap <c-n> <plug>(YoinkPostPasteSwapBack)
 nmap <c-p> <plug>(YoinkPostPasteSwapForward)
 nmap p <plug>(YoinkPaste_p)
@@ -155,17 +165,17 @@ xmap P <plug>(SubversiveSubstitute)
 " }
 
 " ale {
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
-let g:airline#extensions#ale#enabled = 1      " Integrate with vim-airline
-let g:ale_lint_on_text_changed = 'never'      " Do not run when text changes
-let g:ale_sign_column_always = 1              " Always show the sign column
+let g:ale_sign_error = 'E'
+let g:ale_sign_warning = '!'
+let g:airline#extensions#ale#enabled = 1 " Integrate with vim-airline
+let g:ale_lint_on_text_changed = 'never' " Do not run when text changes
+let g:ale_sign_column_always = 1         " Always show the sign column
 let g:ale_linter_aliases = {
 \ 'typescriptreact': 'typescript',
 \ 'javascriptreact': 'javascript'
 \}
 let g:ale_linters = {
-\ 'javascript': ['eslint'],
+\ 'javascript': ['eslint', 'flow-language-server'],
 \ 'typescript': ['tsserver', 'tslint', 'eslint'],
 \ 'ruby': ['rubocop', 'ruby']
 \}
@@ -176,9 +186,9 @@ let g:ale_fixers = {
 \ 'typescriptreact': ['prettier'],
 \ 'jsx': ['eslint']
 \}
-nnoremap <silent><leader>lf :ALEFix<CR>
-nnoremap <silent><leader>lo :lopen<CR>
-nnoremap <silent><leader>lc :lclose<CR>
+nnoremap <leader>lf :ALEFix<CR>
+nnoremap <leader>lo :lopen<CR>
+nnoremap <leader>lc :lclose<CR>
 "}
 
 " fzf
@@ -204,7 +214,20 @@ nmap ga <Plug>(EasyAlign)
 " }
 
 " vim-after-object {
-autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
+autocmd VimEnter * call after_object#enable(['[', ']'], '=', ':', '-', '#', ' ')
+" }
+
+" vim-argwrap {
+nnoremap <leader>a :ArgWrap<CR>
+" }
+
+" split-join {
+let g:splitjoin_ruby_curly_braces = 0
+let g:splitjoin_ruby_hanging_args = 0
+" }
+
+" far {
+let g:far#source = 'rg'
 " }
 
 " GUI STUFF {
