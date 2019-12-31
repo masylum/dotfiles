@@ -12,9 +12,6 @@ if [ -d $HOME/.rbenv ]; then
   eval "$(rbenv init - --no-rehash)"
 fi
 
-# Add rvm gems and nginx to the path
-export PATH=/usr/local/bin:$PATH:/opt/nginx/sbin:$HOME/local/node/bin:/usr/local/sbin
-
 # Set the editor and git editor
 export EDITOR="/usr/bin/vim"
 
@@ -28,7 +25,6 @@ export TERM='xterm-color'
 alias ls='ls -G'
 alias ll='ls -lG'
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
-export GREP_OPTIONS="--color"
 
 # Erase duplicates in history
 export HISTCONTROL=erasedups
@@ -55,8 +51,6 @@ grb_git_prompt() {
 source ~/bin/git-completion.bash
 
 PS1="\[\033[01;32m\]\w\[\033[01;34m\]\$(grb_git_prompt) \[\033[00m\]\$ "
-
-export PATH="$HOME/.cargo/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
