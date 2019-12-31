@@ -1,6 +1,7 @@
 " PLUG {
 " ====
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible' " tim pope's defaults
 Plug 'scrooloose/nerdtree' " TODO: Configure
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kien/rainbow_parentheses.vim'
@@ -35,7 +36,6 @@ call plug#end()
 
 " CONFIG {
 " ======
-set shell=sh " TODO: review
 set synmaxcol=200 " TODO: review
 set nowrap " TODO: doc
 set showmatch " show matching brackets
@@ -46,15 +46,11 @@ set wildignore+=*.min.js,**/node_modules/**,**/images/**
 set wildignore+=**/assets/**/original/**,**/assets/**/thumb/**,**/assets/**/small/**
 set wildignore+=tmp,public,vendor/bundle/*,vendor/cache/*,test/fixtures/*,vendor/gems/*,spec/cov,a/*
 set wildignore+=sorbet/*
-syntax enable
-:set t_Co=256 " TODO: For certain color-limited terminals
 colorscheme dracula
 set tabstop=2 " Tabs are 2 spaces
 set softtabstop=2 " TODO: Document
 set shiftwidth=2 " Tabs under smart indent
 set smartindent " TODO: Document
-filetype plugin indent on " TODO: Document
-set smarttab " TODO: Document
 set expandtab " TODO: Document
 set cursorline " TODO: Document
 set number " TODO: Document
