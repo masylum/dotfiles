@@ -24,7 +24,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " TODO: Practi
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-emoji'
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/vim-slash'                                         " Better / and *
 Plug 'junegunn/vim-easy-align'                                    " TODO: Practice
 Plug 'junegunn/gv.vim'                                            " TODO: Practice
 Plug 'junegunn/vim-peekaboo'                                      " TODO: Practice
@@ -191,8 +190,9 @@ nnoremap <leader>lo :lopen<CR>
 nnoremap <leader>lc :lclose<CR>
 "}
 
-" fzf
+" fzf {
 let g:fzf_command_prefix = 'FZF'
+" TODO: Use ripgrem
 command! -bang -nargs=* FZFGGrep
 \ call fzf#vim#grep(
 \   'git grep --line-number '.shellescape(<q-args>), 0,
@@ -200,7 +200,7 @@ command! -bang -nargs=* FZFGGrep
 nnoremap <leader><leader>f :FZFFiles<cr>
 nnoremap <leader><leader>b :FZFBuffers<cr>
 nnoremap <leader><leader>g :FZFGGrep<space>
-nnoremap <leader><leader>v :FZFGGrep <c-r><c-w><cr>
+nnoremap <leader><leader>G :FZFGGrep <c-r><c-w><cr>
 "}
 
 "vim-emoji {
