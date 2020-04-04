@@ -21,7 +21,6 @@ set -o vi
 # => Stolen from gary
 
 # Unbreak broken, non-colored terminal
-export TERM='xterm-color'
 alias ls='ls -G'
 alias ll='ls -lG'
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
