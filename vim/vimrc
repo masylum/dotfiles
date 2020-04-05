@@ -3,7 +3,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'                                         " tim pope's defaults
 Plug 'scrooloose/nerdtree'
-Pug 'kien/rainbow_parentheses.vim'
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'justincampbell/vim-eighties'
 Plug 'vim-airline/vim-airline'
 Plug 'tommcdo/vim-exchange'                                       " TODO: Practice
